@@ -12,6 +12,6 @@ ASP .NET CORE MVC PROJESÝ
 - Pitch text box kullanýlacak
 
 - Takým hergün toplantý yapacak
-- Proje Githup'a atýlacak. 
+- Proje Githup'a atýlacak. - Herkes kendi branc'ý ile çalýþsýn
 - Görevler DevAzure'den paylaþýlýp takip edilecek
 
