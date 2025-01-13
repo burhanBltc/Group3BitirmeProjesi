@@ -1,0 +1,17 @@
+
+ASP .NET CORE MVC PROJESÝ
+
+- Ürün tanýtým sitesi
+- Siteye herkes üye olmadan girebiliyor (User). 
+- Crud iþlemlerini sadece Admin yapacak (Identity kullaniyoruz)
+- Repositories de metotlar yazýlacak
+- DAL klasöründe entitiler, enumlar ve veri tabaný baðlantý sýnýfý olacak
+- Admin þifre ve mail ile girecek (þifre en az 6 karakter, büyük harf, küçük harf rakam, özel karakter olacak)
+- Ürün fiyat bilgisi olsun (gösterip gösterilmeyeceðine sonra karar verilecek)
+- Fiyat bilgisi döviz de olsun
+- Pitch text box kullanýlacak
+
+- Takým hergün toplantý yapacak
+- Proje Githup'a atýlacak. 
+- Görevler DevAzure'den paylaþýlýp takip edilecek
+
