@@ -15,3 +15,39 @@ ASP .NET CORE MVC PROJESÝ
 - Proje Githup'a atýlacak. - Herkes kendi branc'ý ile çalýþsýn
 - Görevler DevAzure'den paylaþýlýp takip edilecek
 
+
+Ürün Tanýtým Sitesi Projesi
+Bu projede, C# ve ASP.NET Core 8 MVC ile bir e-ticaret platformunun admin paneli ve kullanýcý tarafýný geliþtireceðiz. Admin, kategori ve ürün yönetimi yapabilecekken, kullanýcýlar sadece kategoriler altýndaki ürünleri görüntüleyecekler. Proje, code-first yaklaþýmýný kullanacak, Microsoft.IdentityFramework ile kimlik doðrulama yapýlacak ve Fluent API ile yapýlandýrmalar saðlanacaktýr.
+
+
+Projede Kullanýlacak Teknolojiler:
+ASP.NET Core 8 MVC
+SQL Server
+Entity Framework Core (Code First)
+Microsoft Identity Framework
+Fluent API
+Repository Pattern
+Identity için Area kullanýmý
+
+Yol Haritasý:
+Proje Oluþturma:
+Visual Studio üzerinden yeni bir ASP.NET Core Web Application oluþturun.
+Proje türü olarak MVC seçin.
+ASP.NET Core 8'i hedefleyin.
+
+Veritabaný Tasarýmý ve Entity Framework Core (Code First):
+Veritabaný tasarýmýna karar verin: Product, Category, Admin (Identity kullanarak).
+Veritabaný için Code First yaklaþýmýný kullanacaðýz.
+
+Kimlik Doðrulama (Identity) Yapýlandýrmasý:
+Admin için þifre, e-posta doðrulamasý ve yetkilendirme iþlemleri yapacaðýz.
+
+CRUD Ýþlemleri için Repository Pattern Kullanýmý:
+Generic Repository tasarýmý ile CRUD iþlemleri yapýlacak.
+
+Admin Paneli Ýçin Area Kullanýmý:
+Admin paneli için ayrý bir Area oluþturulacak.
+
+Fluent API ile Veritabaný Ýliþkileri ve Validasyon:
+Kategoriler ve ürünler arasýndaki iliþkiyi kuracaðýz.
+Þifre için özel validasyon ekleyeceðiz.
