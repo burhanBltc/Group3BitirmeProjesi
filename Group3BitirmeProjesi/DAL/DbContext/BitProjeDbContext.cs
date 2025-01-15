@@ -1,11 +1,11 @@
 ﻿using Group3BitirmeProjesi.DAL.Entities.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Group3BitirmeProjesi.DAL.DbContext
 {
- 
-    public class BitProjeDbContext : IdentityDbContext<AppUser>
+    public class BitProjeDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -28,10 +28,31 @@ namespace Group3BitirmeProjesi.DAL.DbContext
                 .WithOne(p => p.Category)
                 .HasForeignKey(p => p.CategoryId);
 
-            // Password validation rule (6 character minimum, 1 uppercase, 1 lowercase, 1 number, 1 special character)
+            
             modelBuilder.Entity<AppUser>()
                 .Property(u => u.PasswordHash)
                 .HasMaxLength(256);
+
+            // Combined Password validation rule (min 6, at least 1-uppercase,lowcase,digit,alphanumeric)
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.PasswordHash)
+                .IsRequired().HasMaxLength(256)
+                .HasAnnotation("MinLength", 6)
+                .HasAnnotation("RegularExpression", @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z\d]).+$");
+
+            //Email validation rule (required, unique, email format)
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.Email)
+                .IsRequired()
+                .HasMaxLength(256)
+                .HasAnnotation("RegularExpression", @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+
+            modelBuilder.Entity<AppUser>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+
+
+
         }
     }
 }

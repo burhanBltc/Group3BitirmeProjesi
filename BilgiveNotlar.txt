@@ -8,8 +8,8 @@ ASP .NET CORE MVC PROJESÝ
 - DAL klasöründe entitiler, enumlar ve veri tabaný baðlantý sýnýfý olacak
 - Admin þifre ve mail ile girecek (þifre en az 6 karakter, büyük harf, küçük harf rakam, özel karakter olacak)
 - Ürün fiyat bilgisi olsun (gösterip gösterilmeyeceðine sonra karar verilecek)
-- Fiyat bilgisi döviz de olsun
-- Pitch text box kullanýlacak
+- Fiyat bilgisi döviz(currency) de olsun
+- Rich text box kullanýlacak
 
 - Takým hergün toplantý yapacak
 - Proje Githup'a atýlacak. - Herkes kendi branc'ý ile çalýþsýn
@@ -43,7 +43,7 @@ Kimlik Doðrulama (Identity) Yapýlandýrmasý:
 Admin için þifre, e-posta doðrulamasý ve yetkilendirme iþlemleri yapacaðýz.
 
 CRUD Ýþlemleri için Repository Pattern Kullanýmý:
-Generic Repository tasarýmý ile CRUD iþlemleri yapýlacak.
+Generic Repository tasarýmý ile CRUD iþlemleri yapýlacak. 
 
 Admin Paneli Ýçin Area Kullanýmý:
 Admin paneli için ayrý bir Area oluþturulacak.
@@ -51,3 +51,8 @@ Admin paneli için ayrý bir Area oluþturulacak.
 Fluent API ile Veritabaný Ýliþkileri ve Validasyon:
 Kategoriler ve ürünler arasýndaki iliþkiyi kuracaðýz.
 Þifre için özel validasyon ekleyeceðiz.
+
+ToDo 
+Admin paneli oluþturalacak ve login iþlemler yapýlacak.
+Category ve product controllerda Delete metoduna Remove eklenecek.
+Viewlar oluþturalacak templateler eklenecek

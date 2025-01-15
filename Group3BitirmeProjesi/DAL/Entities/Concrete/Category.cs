@@ -1,11 +1,14 @@
-﻿namespace Group3BitirmeProjesi.DAL.Entities.Concrete
+﻿using Group3BitirmeProjesi.DAL.Entities.Abstract;
+
+namespace Group3BitirmeProjesi.DAL.Entities.Concrete
 {
-    public class Category
+    public class Category : BaseEntity
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-
-
-        public List<Product> Products { get; set; }
+      
+        public Category()
+        {
+            Products = new List<Product>();
+        }
+        public List<Product>? Products { get; set; }
     }
 }
