@@ -1,7 +1,9 @@
-﻿using Group3BitirmeProjesi.DAL.Entities.Concrete;
+﻿using Group3BitirmeProjesi.DAL.DbContext;
+using Group3BitirmeProjesi.DAL.Entities.Concrete;
 using Group3BitirmeProjesi.Repositories.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Group3BitirmeProjesi.Areas.Admin.Controllers
 {
@@ -11,11 +13,13 @@ namespace Group3BitirmeProjesi.Areas.Admin.Controllers
     {
         private readonly IGenericRepository<Product> _pRepo;
         private readonly IGenericRepository<Category> _CRepo;
+        private readonly BitProjeDbContext _context;
 
-        public ProductController(IGenericRepository<Product> pRepo, IGenericRepository<Category> cRepo)
+        public ProductController(IGenericRepository<Product> pRepo, IGenericRepository<Category> cRepo, BitProjeDbContext context)
         {
             _pRepo = pRepo;
             _CRepo = cRepo;
+            _context = context;
         }
 
         // GET: Admin/Product/Create
@@ -44,7 +48,13 @@ namespace Group3BitirmeProjesi.Areas.Admin.Controllers
         public async Task<IActionResult> List()
         {
             var products = await _pRepo.GetAllAsync();
-            return View(products);
+      
+            // Category ilişkisini dahil etmek için, her bir ürünü category ile birlikte almak için:
+            var productsWithCategory = await _context.Products
+                                                      .Include(p => p.Category) // Category ilişkisini yükle
+                                                      .ToListAsync();
+
+            return View(productsWithCategory); // İlişkili veriyi view'a gönder
         }
 
         // GET: Admin/Product/Update/5

@@ -10,7 +10,7 @@ namespace Group3BitirmeProjesi.DAL.Entities.Concrete
         public string LastName { get; set; }
 
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
         public DateTime BirthDate { get; set; }
 
         // İstenirse kullanıcıya özel başka özellikler eklenebilir.

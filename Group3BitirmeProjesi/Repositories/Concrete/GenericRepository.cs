@@ -1,5 +1,6 @@
 ﻿using Group3BitirmeProjesi.DAL.DbContext;
 using Group3BitirmeProjesi.DAL.Entities.Abstract;
+using Group3BitirmeProjesi.DAL.Entities.Concrete;
 using Group3BitirmeProjesi.Repositories.Abstract;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +11,7 @@ namespace Group3BitirmeProjesi.Repositories.Concrete
         private readonly BitProjeDbContext _context;
       
 
-        public GenericRepository(BitProjeDbContext context, BaseEntity baseEntity)
+        public GenericRepository(BitProjeDbContext context)
         {
             _context = context;
             
@@ -20,6 +21,7 @@ namespace Group3BitirmeProjesi.Repositories.Concrete
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
+         
         }
 
         public async Task<T> GetByIdAsync(int id)

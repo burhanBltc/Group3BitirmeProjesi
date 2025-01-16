@@ -11,19 +11,27 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<BitProjeDbContext>(opt => opt.UseSqlServer("Server=DESKTOP-GIDU27R;Database=Bitproje1;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True; "));
+//builder.Services.AddDbContext<BitProjeDbContext>(opt => opt.UseSqlServer("Server=.;Database=BitirmeProjesi1;Trusted_Connection=True;MultipleActiveResultSets=true; TrustServerCertificate=True;"));
+
+// Connection string'i appsettings.json'dan aldýk
+var connectionString = builder.Configuration.GetConnectionString("AppConnectionString");
+
+// DbContext'i yapýlandýr
+builder.Services.AddDbContext<BitProjeDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
 
 //Identity yönetimi
 builder.Services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
 {
     options.SignIn.RequireConfirmedEmail = false;
 
-    //options.Password.RequireDigit = true;  // En az bir rakam olmalý
-    //options.Password.RequireLowercase = true; // En az bir küçük harf olmalý
-    //options.Password.RequireUppercase = true; // En az bir büyük harf olmalý
-    //options.Password.RequireNonAlphanumeric = true; // En az bir özel karakter olmalý
-    //options.Password.RequiredLength = 6; // En az 6 karakter olmalý
-    
+    options.Password.RequireDigit = true;  // En az bir rakam olmalý
+    options.Password.RequireLowercase = true; // En az bir küçük harf olmalý
+    options.Password.RequireUppercase = true; // En az bir büyük harf olmalý
+    options.Password.RequireNonAlphanumeric = true; // En az bir özel karakter olmalý
+    options.Password.RequiredLength = 6; // En az 6 karakter olmalý
+
 }).AddEntityFrameworkStores<BitProjeDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));//tek tek yazmak yerine
