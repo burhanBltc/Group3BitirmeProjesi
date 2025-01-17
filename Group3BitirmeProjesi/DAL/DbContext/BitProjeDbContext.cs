@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Group3BitirmeProjesi.DAL.DbContext
 {
-    public class BitProjeDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
+    public class BitProjeDbContext : IdentityDbContext<AppUser,IdentityRole, string>
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -29,16 +29,16 @@ namespace Group3BitirmeProjesi.DAL.DbContext
                 .HasForeignKey(p => p.CategoryId);
 
             
-            modelBuilder.Entity<AppUser>()
-                .Property(u => u.PasswordHash)
-                .HasMaxLength(256);
+            //modelBuilder.Entity<AppUser>()
+            //    .Property(u => u.PasswordHash)
+            //    .HasMaxLength(256);
 
-            // Combined Password validation rule (min 6, at least 1-uppercase,lowcase,digit,alphanumeric)
-            modelBuilder.Entity<AppUser>()
-                .Property(u => u.PasswordHash)
-                .IsRequired().HasMaxLength(256)
-                .HasAnnotation("MinLength", 6)
-                .HasAnnotation("RegularExpression", @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z\d]).+$");
+            //// Combined Password validation rule (min 6, at least 1-uppercase,lowcase,digit,alphanumeric)
+            //modelBuilder.Entity<AppUser>()
+            //    .Property(u => u.PasswordHash)
+            //    .IsRequired().HasMaxLength(256)
+            //    .HasAnnotation("MinLength", 6)
+            //    .HasAnnotation("RegularExpression", @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z\d]).+$");
 
             //Email validation rule (required, unique, email format)
             modelBuilder.Entity<AppUser>()

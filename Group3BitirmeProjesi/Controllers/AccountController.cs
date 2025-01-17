@@ -10,13 +10,16 @@ namespace Group3BitirmeProjesi.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole>_roleManager;
         private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ILogger<AccountController> logger)
+
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ILogger<AccountController> logger, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _roleManager = roleManager;
         }
 
         public IActionResult Login()
@@ -84,9 +87,10 @@ namespace Group3BitirmeProjesi.Controllers
                 return View(model);
             }
 
-            var user = new AppUser
+            // Kullanıcıyı oluştur
+            AppUser user = new AppUser
             {
-                UserName = model.Email,
+                UserName = model.FirstName+model.LastName, // Kullanıcı adı olarak e-posta kullanabiliriz
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
@@ -94,12 +98,30 @@ namespace Group3BitirmeProjesi.Controllers
             };
 
             // Kullanıcıyı oluştur ve şifreyi hash'le
-            var result = await _userManager.CreateAsync(user, model.Password);
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
-                // Kullanıcıya rol ekle
-                var roleResult = await _userManager.AddToRoleAsync(user, "Admin");
+                // Rolü kontrol et ve varsa ekle
+                string roleName = "Admin";
+                var roleExist = await _roleManager.RoleExistsAsync(roleName); // Rol var mı kontrol et
+
+                if (!roleExist)
+                {
+                    var createRoleResult = await _roleManager.CreateAsync(new IdentityRole(roleName)); // Rol oluştur
+                    if (!createRoleResult.Succeeded)
+                    {
+                        // Rol oluşturulamazsa hataları ekle
+                        foreach (var error in createRoleResult.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                        return View(model);
+                    }
+                }
+
+                // Kullanıcıyı role ekle
+                var roleResult = await _userManager.AddToRoleAsync(user, roleName);
                 if (roleResult.Succeeded)
                 {
                     // Hemen oturum aç

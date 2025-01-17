@@ -1,5 +1,6 @@
 ﻿using Group3BitirmeProjesi.DAL.Entities.Concrete;
 using Group3BitirmeProjesi.Repositories.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.Identity.Client;
@@ -7,6 +8,7 @@ using Microsoft.Identity.Client;
 namespace Group3BitirmeProjesi.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize]
     public class CategoryController : Controller
     {
 

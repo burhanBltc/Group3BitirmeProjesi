@@ -8,14 +8,21 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Admin\Data\**" />
+    <Compile Remove="wwwroot\assets\assets\**" />
     <Content Remove="Areas\Admin\Data\**" />
+    <Content Remove="wwwroot\assets\assets\**" />
     <EmbeddedResource Remove="Areas\Admin\Data\**" />
+    <EmbeddedResource Remove="wwwroot\assets\assets\**" />
     <None Remove="Areas\Admin\Data\**" />
+    <None Remove="wwwroot\assets\assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\AnaSayfa.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

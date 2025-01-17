@@ -1,0 +1,149 @@
+﻿@model List<Group3BitirmeProjesi.DAL.Entities.Concrete.Category>
+
+@{
+    ViewData["Title"] = "Main Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>@ViewData["Title"]</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <style>
+        /* Navbar için Stil */
+        .navbar {
+            background-color: #343a40;
+        }
+
+            .navbar a {
+                color: #ffffff;
+            }
+
+                .navbar a:hover {
+                    color: #ffcc00;
+                }
+
+        /* Sayfa düzeni ve menüleri gizlemek için */
+        .sidebar, .footer, .header {
+            display: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding-top: 30px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+  
+    <!-- Navbar Başlangıcı -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ürünler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Çözümler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">İletişim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hakkında</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Referanslar</a>
+                    </li>
+                    <!-- Login Linki Eklendi -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Login", "Account")">Admin Girişi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar Sonu -->
+    <!-- Navbar Sonu -->
+
+    <main>
+        <div class="container">
+            <section class="section min-vh-100 py-4">
+                <div class="row">
+                    @foreach (var category in Model)
+                    {
+                        <div class="col-12 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@category.Name</h5>
+
+                                    <!-- Ürünler için Alt Loop: Sadece 2 ürün gösterilecek -->
+                                    <div class="row">
+                                        @foreach (var product in category.Products.Take(10))
+                                        {
+                                            <div class="col-12 col-md-6 mb-3">
+                                                <div class="card">
+                                                    <img src="@product.ImagePath" class="card-img-top" alt="product image"/>
+                                                    <div class="card-body">
+                                                        <h6 class="card-title">@product.Name</h6>
+                                                        <p class="card-text">@product.Description</p>
+                                                        <p class="card-text"><strong>@product.Price.ToString("C")</strong></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+</html>
+
+
