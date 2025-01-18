@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Group3BitirmeProjesi.Models.AccountVMs
+namespace Group3BitirmeProjesi.Areas.Admin.Models.AccountVMs
 {
     public class RegisterVM
     {

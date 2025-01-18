@@ -1,16 +1,17 @@
-﻿using Group3BitirmeProjesi.DAL.Entities.Concrete;
-using Group3BitirmeProjesi.Models.AccountVMs;
+﻿using Group3BitirmeProjesi.Areas.Admin.Models.AccountVMs;
+using Group3BitirmeProjesi.DAL.Entities.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 
-namespace Group3BitirmeProjesi.Controllers
+namespace Group3BitirmeProjesi.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        private readonly RoleManager<IdentityRole>_roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogger<AccountController> _logger;
 
 
@@ -22,6 +23,7 @@ namespace Group3BitirmeProjesi.Controllers
             _roleManager = roleManager;
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
@@ -66,7 +68,7 @@ namespace Group3BitirmeProjesi.Controllers
 
 
 
-   
+
         public IActionResult Register()
         {
             return View();
@@ -90,7 +92,7 @@ namespace Group3BitirmeProjesi.Controllers
             // Kullanıcıyı oluştur
             AppUser user = new AppUser
             {
-                UserName = model.FirstName+model.LastName, // Kullanıcı adı olarak e-posta kullanabiliriz
+                UserName = model.FirstName + model.LastName, // Kullanıcı adı olarak e-posta kullanabiliriz
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
