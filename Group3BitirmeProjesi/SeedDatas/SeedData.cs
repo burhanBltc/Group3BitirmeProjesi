@@ -33,7 +33,7 @@ namespace Group3BitirmeProjesi.SeedDatas
                     {
                         UserName = "admin@admin.com",
                         Email = "admin@admin.com",
-                        EmailConfirmed = true // Opsiyonel: Eğer doğrulama yapıyorsanız, değiştirin.
+                        EmailConfirmed = false // Opsiyonel: Eğer doğrulama yapıyorsanız, değiştirin.
                     };
 
                     // Kullanıcı oluştur
