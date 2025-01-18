@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Group3BitirmeProjesi.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize]
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IGenericRepository<Product> _pRepo;

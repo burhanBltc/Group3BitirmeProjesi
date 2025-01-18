@@ -8,7 +8,7 @@ using Microsoft.Identity.Client;
 namespace Group3BitirmeProjesi.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize]
+    [Authorize]
     public class CategoryController : Controller
     {
 

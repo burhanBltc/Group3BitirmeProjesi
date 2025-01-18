@@ -1,5 +1,6 @@
 ﻿using Group3BitirmeProjesi.Areas.Admin.Models.AccountVMs;
 using Group3BitirmeProjesi.DAL.Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
@@ -7,6 +8,7 @@ using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pag
 namespace Group3BitirmeProjesi.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -37,7 +39,7 @@ namespace Group3BitirmeProjesi.Areas.Admin.Controllers
                 return View(model);
 
             }
-            var user = await _userManager.FindByEmailAsync(model.Email);
+            AppUser user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
                 await Console.Out.WriteLineAsync("Kullanıcı adı veya şifre hatalı");
@@ -92,8 +94,10 @@ namespace Group3BitirmeProjesi.Areas.Admin.Controllers
             // Kullanıcıyı oluştur
             AppUser user = new AppUser
             {
-                UserName = model.FirstName + model.LastName, // Kullanıcı adı olarak e-posta kullanabiliriz
+                UserName = model.Email, // Kullanıcı adı olarak e-posta kullanabiliriz
                 Email = model.Email,
+                NormalizedEmail = model.Email.ToUpperInvariant(),
+                NormalizedUserName=model.Email.ToUpperInvariant(),
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 BirthDate = model.BirthDate

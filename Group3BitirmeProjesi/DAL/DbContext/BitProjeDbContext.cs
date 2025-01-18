@@ -47,9 +47,9 @@ namespace Group3BitirmeProjesi.DAL.DbContext
                 .HasMaxLength(256)
                 .HasAnnotation("RegularExpression", @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
 
-            modelBuilder.Entity<AppUser>()
-                .HasIndex(u => u.Email)
-                .IsUnique();
+            //modelBuilder.Entity<AppUser>()
+            //    .HasIndex(u => u.Email)
+            //    .IsUnique();
 
 
 
