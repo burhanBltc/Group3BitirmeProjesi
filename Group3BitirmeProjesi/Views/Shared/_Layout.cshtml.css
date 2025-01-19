@@ -1,0 +1,98 @@
+﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a {
+  color: #0077cc;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+_layout altındaki layout.css kısımdada mevcut stili yoruma alıp bunu yapıştırdım
+#footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+.footer-bar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-widget-area {
+    padding: 10px;
+    flex: 1 1 30%; /* Her bir bölümün genişliğini %30 yapar, esnek olur */
+}
+
+    .footer-widget-area h5.widget-title {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .footer-widget-area ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .footer-widget-area ul li {
+            margin-bottom: 8px;
+        }
+
+.textwidget {
+    font-size: 14px;
+}
+
+.lower-footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 15px 0;
+}
+
+    .lower-footer .container {
+        text-align: center;
+    }
+
+    .lower-footer span {
+        font-size: 14px;
+    }
+ 
+/*.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}*/

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Group3BitirmeProjesi.DAL.Entities.Concrete.Product>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Product List</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Currency</th>
+                    <th>Stock</th>
+                    <th>Category</th>
+               
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.Id</td>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>@product.Currency</td>
+                        <td>@product.Stock</td>
+                        <td>@product.Category.Name</td>
+                        
+                        <td>
+                            <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-sm btn-warning">Update</a>
+                            <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Create" class="btn btn-primary">Add New Product</a>
+</div>

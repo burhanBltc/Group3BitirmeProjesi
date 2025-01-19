@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Group3BitirmeProjesi.DAL.Entities.Concrete.Category>
+
+@{
+    ViewData["Title"] = "Category List";
+}
+
+<h1>Category List</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Is Active</th>
+                    <th>Added Date</th>
+                    <th>Modified Date</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>@category.Id</td>
+                        <td>@category.Name</td>
+                        <td>@category.Description</td>
+                        <td>@(category.IsActive ? "Yes" : "No")</td>
+                        <td>@category.AddedDate.ToString("yyyy-MM-dd")</td>
+                        <td>@category.ModdifiedDate?.ToString("yyyy-MM-dd") </td>
+                        <td>
+                            <a asp-action="Update" asp-route-id="@category.Id" class="btn btn-sm btn-warning">Update</a>
+                            <a asp-action="Details" asp-route-id="@category.Id" class="btn btn-sm btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@category.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-action="Create" class="btn btn-primary mb-3">Add New Category</a>
+    </div>
+</div>
