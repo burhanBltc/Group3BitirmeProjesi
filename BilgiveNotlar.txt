@@ -52,7 +52,25 @@ Fluent API ile Veritabaný Ýliþkileri ve Validasyon:
 Kategoriler ve ürünler arasýndaki iliþkiyi kuracaðýz.
 Þifre için özel validasyon ekleyeceðiz.
 
-ToDo 
+1.HAFTA
 Admin paneli oluþturalacak ve login iþlemler yapýlacak.
 Category ve product controllerda Delete metoduna Remove eklenecek.
 Viewlar oluþturalacak templateler eklenecek
+
+2. HAFTA TO DO 
+Geçen hafta eksik ve ilaveler:
+VT oluþtururken entity propertylerinin kapasitesini sýnýrla (nvarcahmax olanlarý)
+Repository leri Category, Product ekle
+Category seçilmeden product oluþturmuyor ama uyarý vermiyor, uyarý versin, 
+Product view ederken label Category Name olsun
+Price küsüratlý yazýnca View da sorun oluyor, düzelt
+Ürün güncellemede kategory seçili gelmiyor
+View da görünen tarih formatý gün/ay/yýl olsun
+Category update ederken create tarihi deðiþtirilebiliyor, yanlýþ. Modified date boþken görünüyor, yanlýþ, güncelleme varsa görünsün. Tarih readonly olsun. Seçilemesin, datetimenow ekle. 
+Currency default TL gelsin istenirse Euro, Dolar seçilebilsin (seçenekleri gösterin)
+Delete etmeden önce eminmisin diye sorsun
+Registerdan sonra mail ile doðrulama
+
+Yeni görev:
+Ürün detay sayfasý gelsin
+Ürünler vb üst menü sayfalarýný arkada oluþtur önde göster

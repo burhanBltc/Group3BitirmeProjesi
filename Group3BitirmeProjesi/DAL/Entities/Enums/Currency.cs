@@ -1,9 +1,9 @@
 ﻿namespace Group3BitirmeProjesi.DAL.Entities.Enums
 {
-    public enum Roles
+    public enum Currency
     {
-        Admin=1,
-        Customer
-
+        TL=1,
+        Euro,
+        Dolar
     }
 }

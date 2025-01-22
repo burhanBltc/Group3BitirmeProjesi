@@ -61,14 +61,14 @@
 
             <div class="form-group">
                 <label asp-for="AddedDate" class="control-label"></label>
-                <input asp-for="AddedDate" class="form-control" />
+                <input asp-for="AddedDate" class="form-control" readonly />
                 <span asp-validation-for="AddedDate" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="ModdifiedDate" class="control-label"></label>
-                <input asp-for="ModdifiedDate" class="form-control" />
-                <span asp-validation-for="ModdifiedDate" class="text-danger"></span>
+                <input asp-for="ModdifiedDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")" readonly />
+                <span asp-validation-for="ModdifiedDate" class=" text-danger"></span>
             </div>
             <br />
             <div class="form-group">

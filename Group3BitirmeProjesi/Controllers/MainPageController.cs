@@ -9,7 +9,7 @@ namespace Group3BitirmeProjesi.Controllers
     public class MainPageController : Controller
     {
         private readonly IGenericRepository<Product> _pRepo;
-        private readonly IGenericRepository<Category> _CRepo;
+        private readonly IGenericRepository<Category> _cRepo;
         private readonly BitProjeDbContext _context;
 
 
@@ -17,7 +17,7 @@ namespace Group3BitirmeProjesi.Controllers
         {
             _context = context;
             _pRepo = pRepo;
-            _CRepo = cRepo;
+            _cRepo = cRepo;
         }
 
         // Ana Sayfa (Index) ve Kategoriler ile Ürünlerin Görüntülenmesi

@@ -1,4 +1,6 @@
-﻿namespace Group3BitirmeProjesi.Repositories.Abstract
+﻿using System.Linq.Expressions;
+
+namespace Group3BitirmeProjesi.Repositories.Abstract
 {
     public interface IGenericRepository<T> where T : class
     {

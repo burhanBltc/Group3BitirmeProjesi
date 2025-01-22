@@ -1,4 +1,4 @@
-﻿@model Group3BitirmeProjesi.DAL.Entities.Concrete.Category
+﻿@model Category
 
 @{
     ViewData["Title"] = "Create Category";
@@ -32,11 +32,11 @@
                 <span asp-validation-for="IsActive" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+@*             <div class="form-group">
                 <label asp-for="AddedDate" class="control-label"></label>
                 <input asp-for="AddedDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")" type="datetime-local" />
                 <span asp-validation-for="AddedDate" class="text-danger"></span>
-            </div>
+            </div> *@
 
             <br />
             <div class="form-group">

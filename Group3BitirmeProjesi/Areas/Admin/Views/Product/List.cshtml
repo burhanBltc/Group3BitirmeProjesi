@@ -17,7 +17,7 @@
                     <th>Currency</th>
                     <th>Stock</th>
                     <th>Category</th>
-               
+                             
                 </tr>
             </thead>
             <tbody>
@@ -26,15 +26,18 @@
                     <tr>
                         <td>@product.Id</td>
                         <td>@product.Name</td>
-                        <td>@product.Price</td>
+                        <td>@product.Price.ToString("F2")</td>
+               
                         <td>@product.Currency</td>
                         <td>@product.Stock</td>
                         <td>@product.Category.Name</td>
-                        
+                      
                         <td>
                             <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-sm btn-warning">Update</a>
-                            <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-info">Details</a>
-                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-danger">Delete</a>
+                            @*     <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-danger">Delete</a> *@
+                            <!-- Silme Butonu ile Onay Penceresi -->
+                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-danger"
+                               onclick="return confirm('Emin misiniz? Bu işlem geri alınamaz!')">Delete</a>
                         </td>
                     </tr>
                 }
@@ -46,3 +49,6 @@
 <div>
     <a asp-action="Create" class="btn btn-primary">Add New Product</a>
 </div>
+
+
+
